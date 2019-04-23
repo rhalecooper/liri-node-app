@@ -41,18 +41,25 @@ if (command === 'spotify-this-song') {
 
         var isTrackNotFound = true;
         for (i = 0; i < trackList.length; i++) {
+            //console.log ("i =", i)
+            //console.log ("trackList[i] is", trackList[i])
             if (trackList[i].name === songName) {
                 isTrackNotFound = false;
-                var artistArray = trackList[i].artists
-                var artistString = artistArray[0].name 
-                for (j=1;j<artistArray.length;j++) {
-                    artistString = artist + ', ' + artistArray[j].name 
+                if (trackList[i].artists.lenght >= 0) {
+                    var artistArray = trackList[i].artists
+                    var artistString = artistArray[0].name 
+                    for (j=1;j<artistArray.length;j++) {
+                        artistString = artist + ', ' + artistArray[j].name 
+                    }
+                } else {
+                    artistString = "Not available"
                 }
                 console.log(" ");
                 console.log("Artist(s):    ", artistString);
                 console.log("Song's name:  ", trackList[i].name);
                 console.log("Preview link: ", trackList[i].preview_url);
                 console.log("Album Name:   ", trackList[i].album.name);
+                console.log(" ");
             }
         }
         if (isTrackNotFound) {
