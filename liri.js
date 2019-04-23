@@ -139,7 +139,7 @@ function showMovie(response) {
     for (i = 0; i < temp.length; i++) {
         var Source = String(temp[i].Source);
         if (Source.toLowerCase() === "rotten tomatoes") {
-            console.log("Source is ", Source.toLowerCase())
+            //console.log("Source is ", Source.toLowerCase())
             var rottenTomatos = response.data.Ratings[i].Value
         }
     }
