@@ -37,28 +37,26 @@ if (command === 'spotify-this-song') {
         }
         var songData = data;
         console.log('We found ' + songData.tracks.total + ' possible tracks!');
-        var trackList = songData.tracks.items;
+        var trackArray = songData.tracks.items;
 
         var isTrackNotFound = true;
-        for (i = 0; i < trackList.length; i++) {
-            //console.log ("i =", i)
-            //console.log ("trackList[i] is", trackList[i])
-            if (trackList[i].name === songName) {
+        for (i = 0; i < trackArray.length; i++) {
+            if (trackArray[i].name === songName) {
                 isTrackNotFound = false;
-                if (trackList[i].artists.lenght >= 0) {
-                    var artistArray = trackList[i].artists
+                if (trackArray[i].artists.length >= 0) {
+                    var artistArray = trackArray[i].artists
                     var artistString = artistArray[0].name 
                     for (j=1;j<artistArray.length;j++) {
-                        artistString = artist + ', ' + artistArray[j].name 
+                        artistString = artistString + ', ' + artistArray[j].name 
                     }
                 } else {
                     artistString = "Not available"
                 }
                 console.log(" ");
                 console.log("Artist(s):    ", artistString);
-                console.log("Song's name:  ", trackList[i].name);
-                console.log("Preview link: ", trackList[i].preview_url);
-                console.log("Album Name:   ", trackList[i].album.name);
+                console.log("Song's name:  ", trackArray[i].name);
+                console.log("Preview link: ", trackArray[i].preview_url);
+                console.log("Album Name:   ", trackArray[i].album.name);
                 console.log(" ");
             }
         }
